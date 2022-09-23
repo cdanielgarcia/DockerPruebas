@@ -1,3 +1,6 @@
 run this command to running sql server:
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1234" -e "MSSQL_PID=Enterprise" -p 1433:1433 -d  mcr.microsoft.com/mssql/server:2019-latest
+docker pull postgres
+docker run --name postgresdb -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres
 docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1234" -e "MSSQL_PID=Enterprise" -p 1433:1433 -d  mcr.microsoft.com/mssql/server:2019-latesit
+docker logs <containerid>
