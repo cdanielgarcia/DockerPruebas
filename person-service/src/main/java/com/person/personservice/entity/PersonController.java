@@ -26,7 +26,7 @@ public class PersonController {
     }
 
     @PostMapping("/person")
-    Person newPersona(@RequestBody Person newPerson) {
+    Person newPerson(@RequestBody Person newPerson) {
         list.add(newPerson);
         return newPerson;
     }

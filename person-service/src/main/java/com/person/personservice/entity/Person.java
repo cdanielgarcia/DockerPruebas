@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
  import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Person {
-    private @Id @GeneratedValue int id_persona;
+//    private @Id @GeneratedValue int id_persona;
+    private int id_persona;
     private String nombre;
     private String apellido;
 
