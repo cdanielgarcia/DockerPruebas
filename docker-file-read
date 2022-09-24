@@ -1,6 +1,7 @@
 run this command to running sql server:
 docker pull postgres
 docker run --name postgresdb -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres
-docker pull mcr.microsoft.com/mssql/server:2019-latest
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1234" -e "MSSQL_PID=Enterprise" -p 1433:1433 -d  mcr.microsoft.com/mssql/server:2019-latesit
 docker logs <containerid>
+
+#to create volume
+docker run --name postgresdb -e POSTGRES_PASSWORD=password -p 5432:5432 -v C:\Users\Usuario\Documents\testing-docker\data\pg:/var/lib/postgresql/data -d postgres
