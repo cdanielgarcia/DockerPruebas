@@ -1,2 +1,4 @@
-package com.person.personservice.entity;public class PaisController {
+package com.person.personservice.entity;
+
+public class PaisController {
 }

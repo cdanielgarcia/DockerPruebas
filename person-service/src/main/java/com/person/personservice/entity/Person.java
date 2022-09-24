@@ -1,28 +1,33 @@
 package com.person.personservice.entity;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
- import javax.persistence.Id;
+import javax.persistence.Id;
 
 @Entity
 public class Person {
-    private @Id @GeneratedValue int id_persona;
+    @Id
+    @GeneratedValue
+    @Column(name = "id_persona")
+    private int idPersona;
     private String nombre;
     private String apellido;
+
+    public Person() {
+    }
 
     public Person(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public int getId_persona() {
-        return id_persona;
+    public int getIdPersona() {
+        return idPersona;
     }
 
-    public void setId_persona(int id_persona) {
-        this.id_persona = id_persona;
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getNombre() {
@@ -44,7 +49,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id_persona=" + id_persona +
+                "id_persona=" + idPersona +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 '}';
