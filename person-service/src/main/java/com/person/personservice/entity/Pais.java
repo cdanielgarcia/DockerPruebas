@@ -5,7 +5,9 @@ import javax.persistence.Id;
 
 public class Pais {
 
-    private @Id @GeneratedValue int id_pais;
+    private @Id
+    @GeneratedValue
+    int id_pais;
 
     private String nombre;
 
