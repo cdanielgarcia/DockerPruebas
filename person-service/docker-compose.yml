@@ -1,0 +1,44 @@
+version: "3.8"
+
+networks:
+  test:
+
+services:
+  app:
+    image: maikgar10/person-service:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    #working_dir: /usr/src/app
+    container_name: person-service
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/sistemaweb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+          - test
+
+#    command: java -Djava.security.egd=file:/dev/./urandom -jar /target/person-service-0.0.1-SNAPSHOT.jar
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+#try the next instead of data volume: C:\Users\Usuario\Documents\testing-docker\data\pg
+    environment:
+      POSTGRES_DB: sistemaweb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    networks:
+      - test
+
+volumes:
+  data:
