@@ -1,4 +1,4 @@
-# DockerPruebas
+# Playing with Docker
 ###### Run this command to running postgresql database:
 $ docker pull postgres
 ###### After that we can run our container like this:
