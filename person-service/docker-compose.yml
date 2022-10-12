@@ -22,8 +22,6 @@ services:
     networks:
           - test
 
-#    command: java -Djava.security.egd=file:/dev/./urandom -jar /target/person-service-0.0.1-SNAPSHOT.jar
-
   postgres:
     image: postgres:latest
     restart: always

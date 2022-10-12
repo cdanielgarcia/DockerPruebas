@@ -1,7 +1,0 @@
-run this command to running sql server:
-docker pull postgres
-docker run --name postgresdb -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres
-docker logs <containerid>
-
-#To create volume
-docker run --name postgresdb -e POSTGRES_PASSWORD=password -e POSTGRES_DB=sistemaweb -p 5432:5432 -v C:\Users\Usuario\Documents\testing-docker\data\pg:/var/lib/postgresql/data -d postgres

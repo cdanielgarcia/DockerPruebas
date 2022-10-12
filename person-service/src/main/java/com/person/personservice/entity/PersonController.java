@@ -20,6 +20,11 @@ public class PersonController {
         return list;
     }
 
+    @GetMapping("/test3")
+    String test3() {
+        return "test3";
+    }
+
     @GetMapping("/person/{id}")
     Person one(@PathVariable int id) {
         return list.get(id);
