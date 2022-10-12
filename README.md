@@ -1,5 +1,5 @@
 # DockerPruebas
-run this command to running sql server:
+run this command to running postgresql database:
 docker pull postgres
 docker run --name postgresdb -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres
 docker logs <containerid>
@@ -9,19 +9,19 @@ docker run --name postgresdb -e POSTGRES_PASSWORD=password -e POSTGRES_DB=sistem
 
 
 
-#In order to create the image from our project we must create the DockerFile with next configuration after compile our artifact
+#In order to create the image from our Spring boot project we must create the DockerFile with next configuration after compile our artifact
 $ ./mvnw clean package -DskipTests
 
 
 #After that we must build the image:
-$ docker build -t {name}/{nameimage} . 
+$ docker build -t <name>/<nameimage> . 
 #In my case is this one:
-$ docker build -t image/person-service .
+$ docker build -t maikgar10/person-service .
 
 
 #After that we can run our container with the image like this:
-$ docker run -p 8080:8080 image/person-service
-
+$ docker run -p 8080:8080 maikgar10/person-service:v1
+  
 #Now we need to tag our image and push on docker's repository For that we need to created a repository in docker hub With the same name of our last image, in our case person-service as next: https://hub.docker.com/r/maikgar10/person-service the next is the command to created the tag like this:
 $ docker tag image/person-service maikgar10/person-service:v1
 
@@ -35,4 +35,4 @@ $ docker push maikgar10/person-service:v1
 -----Utils commands----
 $ docker container prune  //remove the containers
 $ docker volume prune //remove all the volume
-$ docker-compose up --build  //to build all the container with Dockerfile
+$ docker-compose up --build  //to build the container again with all, docker-compose file and refresh Dockerfile configuration
