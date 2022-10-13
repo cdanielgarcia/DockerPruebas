@@ -1,19 +1,21 @@
 package com.person.personservice.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "persona")
 public class Person {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_persona")
-    private int idPersona;
+    private Integer idPersona;
+
+    @Column(name = "ciudad_id")
+    private Integer idCiudad;
 
     private String nombre;
+
     private String apellido;
 
     public Person() {
@@ -46,6 +48,14 @@ public class Person {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public Integer getIdCiudad() {
+        return idCiudad;
+    }
+
+    public void setIdCiudad(Integer idCiudad) {
+        this.idCiudad = idCiudad;
     }
 
     @Override

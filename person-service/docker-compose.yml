@@ -9,12 +9,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+#Use Dockerfile_debug if you want to use break points and debugger
     ports:
       - "8080:8080"
-    #working_dir: /usr/src/app
+      - "5005:5005"
     container_name: person-service
     depends_on:
       - postgres
+# We override the application.properties file with this env
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/sistemaweb
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -30,7 +32,7 @@ services:
       - "5432:5432"
     volumes:
       - data:/var/lib/postgresql/data
-#try the next instead of data volume: C:\Users\Usuario\Documents\testing-docker\data\pg
+#Try the next instead of data volume: C:\Users\Usuario\Documents\testing-docker\data\pg
     environment:
       POSTGRES_DB: sistemaweb
       POSTGRES_USER: postgres

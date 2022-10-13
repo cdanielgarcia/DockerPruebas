@@ -14,7 +14,14 @@ ARG JAR_FILE=person-service-0.0.1-SNAPSHOT.jar
 COPY --from=maven /usr/app/target/${JAR_FILE} /app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
+#FROM maven:3.6.3 AS maven
+#ENV HOME=/usr/app
+#RUN mkdir -p $HOME
+#WORKDIR $HOME
+#ADD pom.xml $HOME
+#RUN mvn verify --fail-never
+#ADD . $HOME
+#RUN mvn package
 #FROM openjdk:11-oracle
-#ARG JAR_FILE=target/*.jar
-#COPY ${JAR_FILE} app.jar
+#COPY --from=maven /usr/app/target/person-service-0.0.1-SNAPSHOT.jar /app.jar
 #ENTRYPOINT ["java","-jar","/app.jar"]

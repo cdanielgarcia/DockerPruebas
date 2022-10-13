@@ -1,6 +1,7 @@
-package com.person.personservice.entity;
+package com.person.personservice.controller;
 
 
+import com.person.personservice.entity.Pais;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
